@@ -13,43 +13,39 @@ Description: |
         The GPS/GNSS data collected at NCN stations are made available to the public by NGS in Receiver INdependent EXchange (RINEX) format. Most data are available within 1 hour (60 minutes) from when they were recorded at the remote site, and a few sites have a delay of 24 hours (1440 minutes).
         RINEX data can be found at: rinex/`YYYY`/`DDD`/`ssss`/`File-Name`
     - **Station logs**: |
-        Station log files contain all the historical equipment (receiver/antenna) used at that station, approximate location, owner and operating agency, etc..
-        Station log files can be found at: station_log/`ssss`.log.txt
-    - **Published Coordinates and Velocities**: |
+        - Station log files contain all the historical equipment (receiver/antenna) used at that station, approximate location, owner and operating agency, etc..
+          Station log files can be found at: station_log/`ssss`.log.txt
+        - Historical and current equipment information of all NCN stations, except those that are considered IGS stations, can be found at: station_log/cummulative.station.info.cors
+    - **Published Coordinates and Velocities**: |station_log/cummulative.station.info.cors
         NAD83 and ITRF coordinates and velocities of each NCN station. All published coordinates and velocities are given for the Antenna Reference Point (ARP).
         Published coordianate and velocity files can be found at: coord/coord_`YY`/
-    - **Time-series Plots**: |
+        In July 2019, NGS has published [MYCS2](https://geodesy.noaa.gov/CORS/news/mycs2/mycs2.shtml)!
+    - **Time-series Plots**: |    
         - *Short-term* plots show the epeatibility of a site for the last 90-days with respect to the current published position, corrected for the effect of the published velocity. These plots are updated daily.
           Short-term plots can be found at: /Plots/`ssss`_`YY`.short.png
-  
-  
-Documentation:
-Contact:
-ManagedBy:
-UpdateFrequency:
+        - *Long-term* plots show the show weekly residual positions with respect to the current published coordinates from our stacked solution. Newer sites may not have a long-term plot if they were added after our Multi-year Solution Processing campaign. 
+          Long-term plots can be found at: /Plots/Longterm/`ssss`_`YY`.long.png
+    - **Daily Broadcast Ephemeris**:
+        - Daily GPS Broadcast ephemeris can be found at: rinex/`YYYY`/`DDD`/brdc`DDD`0.`YY`n.gz
+        - Daily GLONASS-only Broadcast ephemeris can be found at: rinex/`YYYY`/`DDD`/brdc`DDD`0.`YY`g.gz
+    - **Daily final, rapid, and hourly ultra-rapid GNSS Orbit** can be found at:
+        - Daily final and rapid GNSS Orbit can be found at: rinex/`YYYY`/`DDD`/`AAAWWWWD`.sp3.gz
+        - Hourly ultra-rapid GNSS Orbit can be found at: rinex/`YYYY`/`DDD`/`AAAWWWWD`_`HH`.sp3.gz   
+Documentation: "For more information, visit [NCN Data and Products](https://geodesy.noaa.gov/CORS/data.shtml)"
+Contact: noaa.bdp@noaa.gov 
+ManagedBy: "[NOAA](http://www.noaa.gov/)"
+UpdateFrequency: Most data are available within 1 hour from when they were recorded at the remote site, and a few sites have a delay of 24 hours.
 Tags:
-  -
-License:
+  - GPS
+  - GNSS
+  - RINEX
+  - Continuously Operating Reference Station (CORS)
+  - NOAA CORS Network (NCN)
+  - post-processing
+License: There are no restrictions on the use of this data.
 Resources:
-  - Description:
-    ARN:
-    Region:
-    Type:
-    Explore:
-DataAtWork:
-  Tutorials:
-    - Title:
-      URL:
-      AuthorName:
-      AuthorURL:
-      Services:
-  Tools & Applications:
-    - Title:
-      URL:
-      AuthorName:
-      AuthorURL:
-  Publications:
-    - Title:
-      URL:
-      AuthorName:
-      AuthorURL:
+  - Description: "[NCN Data and Products](https://geodesy.noaa.gov/CORS/data.shtml)"
+    ARN: arn:aws:s3:::noaa-cors-pds
+    Region: us-east-1
+    Type: S3 Bucket
+    Explore: "[Browse Bucket](https://noaa-cors-pds.s3.amazonaws.com/index.html)"
